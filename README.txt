@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin adds Excel export for entries in Gravity Forms. The new tab is added to the the Import/Export page of Gravity Forms.
+This plugin adds Excel export for entries in Gravity Forms. The new tab is added to the the Import/Export page of Gravity Forms. The export functionality (and code) is basicly the same as in the CSV export, but the result is converted to Excel format with PHPExcel.
 
 == TODO ==
 
