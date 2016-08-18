@@ -395,14 +395,14 @@ class Gravity_Forms_Export_Entries_Excel_Admin {
 
 		$entry_count = GFAPI::count_entries( $form_id, $search_criteria );
 
-		$page_size = 100;
+		$page_size = 9999999;
 		$offset    = 0;
 
 		//Adding BOM marker for UTF-8
 		$lines = chr( 239 ) . chr( 187 ) . chr( 191 );
 
 		// set the separater
-		$separator = ";";
+		$separator = "*";
 
 		$field_rows = GFExport::get_field_row_count( $form, $fields, $entry_count );
 
@@ -494,14 +494,13 @@ class Gravity_Forms_Export_Entries_Excel_Admin {
 							// Prevent Excel formulas
 							$value = "'" . $value;
 						}
-
+						$value = preg_replace( "/\r|\n/", "", $value );
 						$lines .= '"' . str_replace( '"', '""', $value ) . '"' . $separator;
 					}
 				}
 				$lines = substr( $lines, 0, strlen( $lines ) - 1 );
 
 				GFCommon::log_debug( "GFExport::start_export(): Lines: {$lines}" );
-
 				$lines .= "\n";
 			}
 
@@ -514,7 +513,7 @@ class Gravity_Forms_Export_Entries_Excel_Admin {
 			$lines = apply_filters( 'gform_export_lines', $lines );
 			//echo $lines;
 			$Data = str_getcsv($lines, "\n"); //parse the rows 
-			foreach($Data as &$Row) $Row = str_getcsv($Row, ";"); //parse the items in rows
+			foreach($Data as &$Row) $Row = str_getcsv($Row, "*"); //parse the items in rows
 			$Data[0][0] = str_replace('"', '', $Data[0][0]);
 			// Create new PHPExcel object
 			$objPHPExcel = new PHPExcel();
