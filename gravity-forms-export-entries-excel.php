@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              http://sirdar.fi
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Gravity_Forms_Export_Entries_Excel
  *
  * @wordpress-plugin
  * Plugin Name:       Gravity Forms Export Entries to Excel
  * Plugin URI:        http://sirdar.fi
  * Description:       This plugin adds Excel export for entries in Gravity Forms
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Jukka Rautanen
  * Author URI:        http://sirdar.fi
  * License:           GPL-2.0+
